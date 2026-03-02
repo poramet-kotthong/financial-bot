@@ -4,4 +4,4 @@ line-bot-sdk
 matplotlib
 pandas
 python-multipart
-pip install matplotlib
+pip install fastapi uvicorn matplotlib line-bot-sdk
