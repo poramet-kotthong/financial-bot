@@ -34,7 +34,7 @@ PRODUCTS = {
     "kf_money":  {"name": "KF-MONEYA (กองทุนตลาดเงิน)",       "rate": 3.0,  "ref": "https://www.krungsriasset.com/TH/FundInfo/FundDetail.html?FundID=KF-MONEYA"},
     "kf_fixed":  {"name": "KF-FIXEDPLUS (ตราสารหนี้)",         "rate": 3.5,  "ref": "https://www.krungsriasset.com/TH/FundInfo/FundDetail.html?FundID=KF-FIXEDPLUS"},
     "kf_bal":    {"name": "KF-BALANCED (กองทุนผสม)",           "rate": 6.0,  "ref": "https://www.krungsriasset.com/TH/FundInfo/FundDetail.html?FundID=KF-BALANCED"},
-    "kf_star":   {"name": "KF-STAR (ผสมเน้นหุ้น)",            "rate": 6.5,  "ref": "https://www.krungsriasset.com/TH/FundInfo/FundDetail.html?FundID=KF-STAR"},
+    "kf_star":   {"name": "KF-STAR (ผสมเน้นหุ้น)",             "rate": 6.5,  "ref": "https://www.krungsriasset.com/TH/FundInfo/FundDetail.html?FundID=KF-STAR"},
     "kf_growth": {"name": "KF-GROWTH (หุ้นในประเทศ)",          "rate": 8.0,  "ref": "https://www.krungsriasset.com/TH/FundInfo/FundDetail.html?FundID=KF-GROWTH"},
     "kf_gtech":  {"name": "KF-GTECH (หุ้นเทคโนโลยีโลก)",      "rate": 9.0,  "ref": "https://www.krungsriasset.com/TH/FundInfo/FundDetail.html?FundID=KF-GTECH"},
     "kf_rmf":    {"name": "KF-RMFA (RMF ตราสารหนี้)",          "rate": 4.0,  "ref": "https://www.krungsriasset.com/TH/FundInfo/FundDetail.html?FundID=KF-RMFA"},
@@ -49,24 +49,24 @@ RISK_CONFIG = {
         "desc": "รักษาเงินต้น ยอมรับผลตอบแทนที่ต่ำกว่า เพื่อความมั่นคงสูง"},
     2: {"name": "ปานกลาง (Moderate)", "return": 0.06, "color": "#FF9800",
         "alloc": {"เงินฝากประจำ": 20, "กองทุนตราสารหนี้": 30, "กองทุนผสม/หุ้น": 50},
-        "products": ["fixed_1y", "kf_fixed", "kf_bal", "kf_star"],
+        "products": ["fixed_1y", "kf_fixed", "kf_bal", "kf_star", "kf_ssf", "kf_rmfa"],
         "desc": "สมดุลระหว่างการเติบโตและความมั่นคง เหมาะกับนักลงทุนทั่วไป"},
     3: {"name": "สูง (Aggressive)", "return": 0.08, "color": "#F44336",
         "alloc": {"เงินฝากประจำ": 5, "กองทุนตราสารหนี้": 15, "กองทุนผสม": 20, "กองทุนหุ้น": 60},
-        "products": ["kf_bal", "kf_growth", "kf_gtech"],
+        "products": ["kf_bal", "kf_growth", "kf_gtech", "kf_rmfg"],
         "desc": "เน้นผลตอบแทนระยะยาว ยอมรับความผันผวนสูงในระยะสั้นได้"},
 }
 
 QUESTIONS = [
     {"key": "current_age",        "step_label": "1/8",   "emoji": "🎂", "label": "อายุปัจจุบัน",                    "example": "เช่น: 30",         "hint": "กรุณาระบุเป็นจำนวนปีเต็ม"},
-    {"key": "retire_age",         "step_label": "2/8",   "emoji": "🏖", "label": "อายุที่ต้องการเกษียณ",           "example": "เช่น: 55",         "hint": "อายุที่คุณวางแผนจะหยุดทำงาน"},
-    {"key": "life_expectancy",    "step_label": "3/8",   "emoji": "⏳", "label": "อายุขัยที่วางแผน",               "example": "เช่น: 85",         "hint": "ค่าเฉลี่ยคนไทย 80 ปี / WHO แนะนำ 85 ปี"},
+    {"key": "retire_age",         "step_label": "2/8",   "emoji": "🏖", "label": "อายุที่ต้องการเกษียณ",            "example": "เช่น: 55",         "hint": "อายุที่คุณวางแผนจะหยุดทำงาน"},
+    {"key": "life_expectancy",    "step_label": "3/8",   "emoji": "⏳", "label": "อายุขัยที่วางแผน",                "example": "เช่น: 85",         "hint": "ค่าเฉลี่ยคนไทย 80 ปี / WHO แนะนำ 85 ปี"},
     {"key": "fixed_expense",      "step_label": "4/8",   "emoji": "🏠", "label": "ค่าใช้จ่ายคงที่/เดือน (บาท)",   "example": "เช่น: 15000",      "hint": "ผ่อนบ้าน/รถ เบี้ยประกัน ค่างวดต่างๆ (ไม่มีพิมพ์ 0)"},
     {"key": "variable_expense",   "step_label": "5/8",   "emoji": "🛍", "label": "ค่าใช้จ่ายแปรผัน/เดือน (บาท)", "example": "เช่น: 12000",      "hint": "อาหาร ค่าเดินทาง ช้อปปิ้ง สาธารณูปโภค"},
     {"key": "monthly_income",     "step_label": "6/8",   "emoji": "💰", "label": "รายรับทั้งหมด/เดือน (บาท)",     "example": "เช่น: 50000",      "hint": "รวมเงินเดือน โบนัส (เฉลี่ย) รายได้เสริม"},
-    {"key": "risk_level",         "step_label": "7/8",   "emoji": "⚖", "label": "ระดับความเสี่ยง",               "example": "พิมพ์ 1, 2 หรือ 3","hint": "1=ต่ำ (~4%/ปี)  2=ปานกลาง (~6%/ปี)  3=สูง (~8%/ปี)"},
+    {"key": "risk_level",         "step_label": "7/8",   "emoji": "⚖", "label": "ระดับความเสี่ยง",                "example": "พิมพ์ 1, 2 หรือ 3","hint": "1=ต่ำ (~4%/ปี)  2=ปานกลาง (~6%/ปี)  3=สูง (~8%/ปี)"},
     {"key": "current_investment", "step_label": "8.1/8", "emoji": "🏦", "label": "เงินออม/ลงทุนสะสม (บาท)",      "example": "เช่น: 200000",     "hint": "รวมเงินฝาก กองทุน หุ้น (ยังไม่มีพิมพ์ 0)"},
-    {"key": "monthly_dca",        "step_label": "8.2/8", "emoji": "📅", "label": "DCA รายเดือน (บาท)",            "example": "เช่น: 5000",       "hint": "เงินที่วางแผนลงทุนสม่ำเสมอทุกเดือน"},
+    {"key": "monthly_dca",        "step_label": "8.2/8", "emoji": "📅", "label": "DCA รายเดือน (บาท)",             "example": "เช่น: 5000",       "hint": "เงินที่วางแผนลงทุนสม่ำเสมอทุกเดือน"},
 ]
 TOTAL_STEPS = len(QUESTIONS)
 
@@ -80,7 +80,6 @@ C_GRAY   = "#666666"
 C_POS    = "#2E7D32"
 C_NEG    = "#C62828"
 C_BLUE   = "#1565C0"
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 #  Flex Helpers
@@ -114,7 +113,6 @@ def prog_bar(ratio, w=10, color=C_GREEN):
                        "backgroundColor": color if i < filled else "#E0E0E0"})
     return {"type": "box", "layout": "horizontal", "spacing": "xs", "contents": cells}
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
 #  Flex Builders
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -132,32 +130,18 @@ def build_welcome_flex():
                      {"type": "text", "text": "ระบบจะช่วยคุณ", "size": "md", "weight": "bold", "color": C_DARK},
                      {"type": "box", "layout": "vertical", "margin": "md", "spacing": "sm",
                       "contents": [
-                          {"type": "box", "layout": "horizontal", "contents": [
-                              {"type": "text", "text": "✅", "size": "sm", "flex": 0},
-                              {"type": "text", "text": "  คำนวณเงินเป้าหมายเกษียณ", "size": "sm", "color": C_GRAY, "flex": 1},
-                          ]},
-                          {"type": "box", "layout": "horizontal", "contents": [
-                              {"type": "text", "text": "✅", "size": "sm", "flex": 0},
-                              {"type": "text", "text": "  วางแผนออมและลงทุนระยะยาว", "size": "sm", "color": C_GRAY, "flex": 1},
-                          ]},
-                          {"type": "box", "layout": "horizontal", "contents": [
-                              {"type": "text", "text": "✅", "size": "sm", "flex": 0},
-                              {"type": "text", "text": "  แนะนำผลิตภัณฑ์กรุงศรีที่เหมาะสม", "size": "sm", "color": C_GRAY, "flex": 1},
-                          ]},
-                          {"type": "box", "layout": "horizontal", "contents": [
-                              {"type": "text", "text": "✅", "size": "sm", "flex": 0},
-                              {"type": "text", "text": "  ลดหย่อนภาษีผ่าน SSF / RMF", "size": "sm", "color": C_GRAY, "flex": 1},
-                          ]},
+                          {"type": "box", "layout": "horizontal", "contents": [{"type": "text", "text": "✅", "size": "sm", "flex": 0}, {"type": "text", "text": "  คำนวณเงินเป้าหมายเกษียณ", "size": "sm", "color": C_GRAY, "flex": 1}]},
+                          {"type": "box", "layout": "horizontal", "contents": [{"type": "text", "text": "✅", "size": "sm", "flex": 0}, {"type": "text", "text": "  วางแผนออมและลงทุนระยะยาว", "size": "sm", "color": C_GRAY, "flex": 1}]},
+                          {"type": "box", "layout": "horizontal", "contents": [{"type": "text", "text": "✅", "size": "sm", "flex": 0}, {"type": "text", "text": "  แนะนำผลิตภัณฑ์กรุงศรีที่เหมาะสม", "size": "sm", "color": C_GRAY, "flex": 1}]},
+                          {"type": "box", "layout": "horizontal", "contents": [{"type": "text", "text": "✅", "size": "sm", "flex": 0}, {"type": "text", "text": "  ลดหย่อนภาษีผ่าน SSF / RMF", "size": "sm", "color": C_GRAY, "flex": 1}]},
                       ]},
                      divider(),
-                     {"type": "text", "text": "ใช้เวลาเพียง 2 นาที — 8 คำถามสั้นๆ",
-                      "size": "xs", "color": C_GRAY, "align": "center", "margin": "md"},
+                     {"type": "text", "text": "ใช้เวลาเพียง 2 นาที — 8 คำถามสั้นๆ", "size": "xs", "color": C_GRAY, "align": "center", "margin": "md"},
                  ]},
         "footer": {"type": "box", "layout": "vertical", "paddingAll": "15px", "backgroundColor": C_LIGHT,
                    "contents": [{"type": "button", "style": "primary", "color": C_GREEN, "height": "sm",
                                  "action": {"type": "message", "label": "🚀 เริ่มวางแผนเลย!", "text": "เริ่ม"}}]},
     }
-
 
 def build_question_flex(step_idx):
     q = QUESTIONS[step_idx]
@@ -189,7 +173,6 @@ def build_question_flex(step_idx):
                       "contents": [{"type": "text", "text": "✏️  " + q["example"], "size": "sm", "color": C_GREEN}]},
                  ]},
     }
-
 
 def build_profile_flex(age, retire, life_exp, n_accum, n_retire,
                        income, fixed_ex, var_ex, total_exp, net_flow, save_pct,
@@ -250,7 +233,6 @@ def build_profile_flex(age, retire, life_exp, n_accum, n_retire,
                  ]},
     }
 
-
 def build_goal_flex(target, fund_4pct, fund_pv, n_retire, r, projected, fv_exist, fv_dca_v, rows_data):
     fmt = lambda n, d=0: f"{n:,.{d}f}"
     row_items = []
@@ -291,7 +273,7 @@ def build_goal_flex(target, fund_4pct, fund_pv, n_retire, r, projected, fv_exist
                      {"type": "box", "layout": "horizontal", "margin": "md",
                       "backgroundColor": C_LIGHT, "cornerRadius": "8px", "paddingAll": "12px",
                       "contents": [
-                          {"type": "text", "text": "🎯 เป้าหมาย (Conservative)", "size": "sm", "color": C_GREEN, "weight": "bold", "flex": 5},
+                          {"type": "text", "text": "🎯 เป้าหมาย", "size": "sm", "color": C_GREEN, "weight": "bold", "flex": 5},
                           {"type": "text", "text": f"฿{fmt(target)}", "size": "md", "color": C_GREEN, "weight": "bold", "flex": 4, "align": "end"},
                       ]},
                      sec_header("📈", f"จำลองการเติบโต ({r*100:.0f}%/ปี)", C_BLUE),
@@ -314,288 +296,134 @@ def build_goal_flex(target, fund_4pct, fund_pv, n_retire, r, projected, fv_exist
                  ]},
     }
 
-
-def build_bigpicture_flex(target, projected, surplus, gap_flag, extra_pmt, total_pmt, dca, rcfg, years_early):
+def build_bigpicture_flex(projected, target):
     fmt = lambda n, d=0: f"{n:,.{d}f}"
-    surplus_color = C_POS if surplus >= 0 else C_NEG
-    surplus_icon  = "🎉" if surplus >= 0 else "⚠️"
-    surplus_label = "เกินเป้าหมาย — ยอดเยี่ยม!" if surplus >= 0 else "ขาดเป้าหมาย — มีแผนรองรับ"
-    surplus_text  = f"+฿{fmt(surplus)}" if surplus >= 0 else f"-฿{fmt(abs(surplus))}"
-    ratio = min(projected / target, 1.0) if target > 0 else 0
+    gap = projected - target
+    is_success = gap >= 0
+    color = C_POS if is_success else C_NEG
+    emoji = "🎉" if is_success else "⚠️"
+    status_msg = "ยอดเยี่ยม! คุณจะบรรลุเป้าหมาย" if is_success else "เป้าหมายยังขาดอยู่อีกนิด"
+    
+    return {
+        "type": "bubble", "size": "mega",
+        "header": {"type": "box", "layout": "vertical", "backgroundColor": "#FFC107", "paddingAll": "18px",
+                   "contents": [
+                       {"type": "text", "text": "🔭 ภาพรวมความสำเร็จ", "color": C_DARK, "size": "lg", "weight": "bold"},
+                       {"type": "text", "text": "Big Picture & Action Plan", "color": C_GRAY, "size": "xs", "margin": "xs"},
+                   ]},
+        "body": {"type": "box", "layout": "vertical", "paddingAll": "18px",
+                 "contents": [
+                     {"type": "text", "text": f"{emoji} {status_msg}", "size": "md", "weight": "bold", "color": color, "align": "center"},
+                     {"type": "text", "text": f"{'+' if is_success else ''}฿{fmt(gap)}", "size": "xl", "weight": "bold", "color": color, "align": "center", "margin": "md"},
+                     divider(),
+                     sec_header("💡", "คำแนะนำเพิ่มเติม", C_DARK),
+                     {"type": "text", "text": "• ปรับเพิ่มเงินลงทุนต่อเดือน (DCA) ขึ้นอีก 10-15%" if not is_success else "• รักษาวินัยการลงทุนนี้ไว้อย่างต่อเนื่อง", "size": "sm", "color": C_GRAY, "wrap": True},
+                     {"type": "text", "text": "• ลดรายจ่ายที่ไม่จำเป็นเพื่อเพิ่มเงินออม", "size": "sm", "color": C_GRAY, "wrap": True},
+                     {"type": "text", "text": "• ทบทวนพอร์ตการลงทุนอย่างน้อยปีละ 1 ครั้ง", "size": "sm", "color": C_GRAY, "wrap": True}
+                 ]}
+    }
 
+def build_scenario_flex(rcfg):
     alloc_items = []
     for k, v in rcfg["alloc"].items():
-        alloc_items.append({"type": "box", "layout": "horizontal", "margin": "xs",
-                             "contents": [
-                                 {"type": "box", "layout": "vertical", "width": "10px", "height": "10px",
-                                  "cornerRadius": "5px", "backgroundColor": rcfg["color"], "offsetTop": "3px", "flex": 0},
-                                 {"type": "text", "text": f"  {k}", "size": "sm", "color": C_GRAY, "flex": 5},
-                                 {"type": "text", "text": f"{v}%", "size": "sm", "color": rcfg["color"],
-                                  "weight": "bold", "flex": 1, "align": "end"},
-                             ]})
-
-    if not gap_flag:
-        action_items = [{"type": "box", "layout": "horizontal", "margin": "sm",
-                         "contents": [
-                             {"type": "text", "text": "✅", "size": "sm", "flex": 0},
-                             {"type": "text", "text": f"  แผนปัจจุบันดีมาก! DCA ฿{fmt(dca)}/เดือน เพียงพอบรรลุเป้าหมาย",
-                              "size": "sm", "color": C_POS, "flex": 1, "wrap": True},
-                         ]}]
-    else:
-        action_items = [
-            row_item("DCA ปัจจุบัน", f"฿{fmt(dca)}/เดือน"),
-            row_item("ต้องออมเพิ่ม", f"+฿{fmt(extra_pmt)}/เดือน", C_NEG, True),
-            {"type": "box", "layout": "horizontal", "margin": "sm",
-             "backgroundColor": "#FFF3E0", "cornerRadius": "6px", "paddingAll": "10px",
-             "contents": [
-                 {"type": "text", "text": "💡 DCA แนะนำรวม", "size": "sm", "color": "#E65100", "flex": 4},
-                 {"type": "text", "text": f"฿{fmt(total_pmt)}/เดือน", "size": "sm", "color": "#E65100", "weight": "bold", "flex": 3, "align": "end"},
-             ]},
-        ]
-    if years_early > 0:
-        action_items.append({"type": "text",
-                              "text": f"🚀 ออมเพิ่ม ฿2,000/เดือน เกษียณเร็วขึ้น ~{years_early} ปี!",
-                              "size": "xs", "color": C_BLUE, "wrap": True, "margin": "sm"})
-
-    return {
-        "type": "bubble", "size": "mega",
-        "header": {"type": "box", "layout": "vertical", "backgroundColor": "#4A148C", "paddingAll": "18px",
-                   "contents": [
-                       {"type": "text", "text": "🔭 The Big Picture", "color": C_WHITE, "size": "lg", "weight": "bold"},
-                       {"type": "text", "text": "สรุปภาพรวมและแผนปฏิบัติการ", "color": "#CE93D8", "size": "xs", "margin": "xs"},
-                   ]},
-        "body": {"type": "box", "layout": "vertical", "paddingAll": "18px",
-                 "contents": [
-                     sec_header("🏆", "Retirement Gap Analysis", "#4A148C"),
-                     divider(),
-                     row_item("เงินเป้าหมาย", f"฿{fmt(target)}", C_DARK, True),
-                     row_item("เงินคาดการณ์", f"฿{fmt(projected)}", C_BLUE, True),
-                     {"type": "box", "layout": "horizontal", "margin": "sm",
-                      "backgroundColor": C_LIGHT if surplus >= 0 else "#FFEBEE",
-                      "cornerRadius": "8px", "paddingAll": "12px",
-                      "contents": [
-                          {"type": "text", "text": f"{surplus_icon} {surplus_label}", "size": "sm",
-                           "color": surplus_color, "weight": "bold", "flex": 3, "wrap": True},
-                          {"type": "text", "text": surplus_text, "size": "md",
-                           "color": surplus_color, "weight": "bold", "flex": 2, "align": "end"},
-                      ]},
-                     {"type": "text", "text": f"ความคืบหน้าสู่เป้าหมาย {int(ratio*100)}%",
-                      "size": "xs", "color": C_GRAY, "margin": "md"},
-                     {**prog_bar(ratio, 10, C_POS), "margin": "xs"},
-
-                     sec_header("⚡", "แผนปฏิบัติการ", "#4A148C"),
-                     divider(),
-                     *action_items,
-
-                     sec_header("📊", f"Asset Allocation — {rcfg['name']}", rcfg["color"]),
-                     divider(),
-                     *alloc_items,
-                     {"type": "text", "text": rcfg["desc"], "size": "xs", "color": C_GRAY, "wrap": True, "margin": "md"},
-                 ]},
-    }
-
-
-def build_products_flex(rcfg, scen_a, scen_b, target, years_early, max_ssf, max_rmf, tax_save, r):
-    fmt = lambda n, d=0: f"{n:,.{d}f}"
-
+        alloc_items.append(row_item(k, f"{v}%", C_DARK))
+        
     product_items = []
-    for pid in rcfg["products"]:
-        p = PRODUCTS.get(pid)
-        if not p: continue
-        product_items.append({"type": "box", "layout": "horizontal", "margin": "sm",
-                               "backgroundColor": "#F5F5F5", "cornerRadius": "8px", "paddingAll": "10px",
-                               "contents": [
-                                   {"type": "box", "layout": "vertical", "flex": 1,
-                                    "contents": [
-                                        {"type": "text", "text": p["name"], "size": "xs", "color": C_DARK, "weight": "bold", "wrap": True},
-                                        {"type": "text", "text": f"ผลตอบแทนเฉลี่ย ~{p['rate']:.1f}%/ปี", "size": "xxs", "color": C_GRAY},
-                                    ]},
-                                   {"type": "button", "style": "link", "height": "sm", "flex": 0,
-                                    "action": {"type": "uri", "label": "ดูเพิ่ม", "uri": p["ref"]}},
-                               ]})
-
-    rmf_p = PRODUCTS["kf_rmf"]
-    ssf_p = PRODUCTS["kf_ssf"]
-
-    def tax_product_box(p):
-        return {"type": "box", "layout": "horizontal", "margin": "sm",
-                "backgroundColor": "#F5F5F5", "cornerRadius": "8px", "paddingAll": "10px",
-                "contents": [
-                    {"type": "box", "layout": "vertical", "flex": 1,
-                     "contents": [
-                         {"type": "text", "text": p["name"], "size": "xs", "color": C_DARK, "weight": "bold", "wrap": True},
-                         {"type": "text", "text": f"~{p['rate']:.0f}%/ปี", "size": "xxs", "color": C_GRAY},
-                     ]},
-                    {"type": "button", "style": "link", "height": "sm", "flex": 0,
-                     "action": {"type": "uri", "label": "ดูเพิ่ม", "uri": p["ref"]}},
-                ]}
-
+    for pid in rcfg.get("products", []):
+        if pid in PRODUCTS:
+            p = PRODUCTS[pid]
+            product_items.append({"type": "text", "text": f"🔹 {p['name']} (ผลตอบแทนอ้างอิง {p['rate']}%)", "size": "xs", "color": C_GRAY, "wrap": True, "margin": "sm"})
+            
     return {
         "type": "bubble", "size": "mega",
-        "header": {"type": "box", "layout": "vertical", "backgroundColor": "#BF360C", "paddingAll": "18px",
+        "header": {"type": "box", "layout": "vertical", "backgroundColor": rcfg["color"], "paddingAll": "18px",
                    "contents": [
-                       {"type": "text", "text": "🔮 Scenario & ผลิตภัณฑ์", "color": C_WHITE, "size": "lg", "weight": "bold"},
-                       {"type": "text", "text": "วิเคราะห์สถานการณ์จำลอง + กรุงศรีแนะนำ", "color": "#FFCCBC", "size": "xs", "margin": "xs"},
+                       {"type": "text", "text": "🔮 แผนการลงทุนที่แนะนำ", "color": C_WHITE, "size": "lg", "weight": "bold"},
+                       {"type": "text", "text": "ผลิตภัณฑ์กรุงศรีที่เหมาะกับคุณ", "color": C_WHITE, "size": "xs", "margin": "xs"},
                    ]},
         "body": {"type": "box", "layout": "vertical", "paddingAll": "18px",
                  "contents": [
-                     sec_header("📌", "สถานการณ์จำลอง (What-If)", "#BF360C"),
+                     sec_header("⚖", f"ความเสี่ยง: {rcfg['name']}", rcfg["color"]),
+                     {"type": "text", "text": rcfg["desc"], "size": "sm", "color": C_GRAY, "wrap": True, "margin": "sm"},
                      divider(),
-                     {"type": "box", "layout": "vertical", "margin": "sm",
-                      "backgroundColor": "#F3E5F5", "cornerRadius": "8px", "paddingAll": "12px",
-                      "contents": [
-                          {"type": "text", "text": "Scenario A — ออมเพิ่ม ฿2,000/เดือน",
-                           "size": "xs", "weight": "bold", "color": "#6A1B9A"},
-                          row_item("เงิน ณ เกษียณ", f"฿{fmt(scen_a)}", "#6A1B9A", True),
-                          {"type": "text",
-                           "text": ("✅ เกินเป้าหมาย!" if scen_a >= target else "⚠️ ยังขาดอยู่")
-                                   + (f"  🚀 เกษียณเร็วขึ้น ~{years_early} ปี!" if years_early > 0 else ""),
-                           "size": "xs", "color": C_POS if scen_a >= target else C_NEG, "margin": "xs"},
-                      ]},
-                     {"type": "box", "layout": "vertical", "margin": "sm",
-                      "backgroundColor": "#E8EAF6", "cornerRadius": "8px", "paddingAll": "12px",
-                      "contents": [
-                          {"type": "text", "text": f"Scenario B — ผลตอบแทน +2% ({r*100:.0f}%→{(r+0.02)*100:.0f}%/ปี)",
-                           "size": "xs", "weight": "bold", "color": C_BLUE, "wrap": True},
-                          row_item("เงิน ณ เกษียณ", f"฿{fmt(scen_b)}", C_BLUE, True),
-                      ]},
-
-                     sec_header("🛡", "Tax Shield — SSF / RMF", "#BF360C"),
+                     sec_header("พอร์ตการลงทุนที่แนะนำ", "", C_DARK),
+                     *alloc_items,
                      divider(),
-                     row_item("SSF (สูงสุด 30% / 2 แสนบาท)", f"฿{fmt(max_ssf)}/ปี", C_POS),
-                     row_item("RMF (สูงสุด 30% / 5 แสนบาท)", f"฿{fmt(max_rmf)}/ปี", C_POS),
-                     {"type": "box", "layout": "horizontal", "margin": "sm",
-                      "backgroundColor": C_LIGHT, "cornerRadius": "6px", "paddingAll": "10px",
-                      "contents": [
-                          {"type": "text", "text": "💚 ภาษีที่ประหยัดได้ ~", "size": "sm", "color": C_POS, "weight": "bold", "flex": 4},
-                          {"type": "text", "text": f"฿{fmt(tax_save)}/ปี", "size": "sm", "color": C_POS, "weight": "bold", "flex": 3, "align": "end"},
-                      ]},
-
-                     sec_header("🏦", f"ผลิตภัณฑ์กรุงศรีแนะนำ ({rcfg['name']})", C_GREEN),
-                     divider(),
-                     *product_items,
-                     {"type": "text", "text": "💎 กองทุนลดหย่อนภาษีแนะนำ",
-                      "size": "sm", "weight": "bold", "color": C_GREEN, "margin": "lg"},
-                     tax_product_box(rmf_p),
-                     tax_product_box(ssf_p),
-                     divider(),
-                     {"type": "text",
-                      "text": "⚠️ ผลตอบแทนในอดีตมิได้รับประกันอนาคต ควรศึกษาหนังสือชี้ชวนก่อนตัดสินใจลงทุนทุกครั้ง",
-                      "size": "xxs", "color": C_GRAY, "wrap": True, "margin": "md"},
-                 ]},
-        "footer": {"type": "box", "layout": "vertical", "paddingAll": "15px", "backgroundColor": C_LIGHT,
-                   "contents": [{"type": "button", "style": "primary", "color": C_GREEN, "height": "sm",
-                                 "action": {"type": "message", "label": "🔄 คำนวณใหม่", "text": "เริ่ม"}}]},
+                     sec_header("ตัวอย่างผลิตภัณฑ์", "", C_DARK),
+                     *product_items
+                 ]}
     }
 
-
 # ═══════════════════════════════════════════════════════════════════════════════
-#  Financial Calculation
-# ═══════════════════════════════════════════════════════════════════════════════
-
-def fmt(n, d=0): return f"{n:,.{d}f}"
-
-def fv_lump(pv, r, n):       return pv * (1 + r) ** n
-def fv_dca_monthly(pmt, r, n):
-    if r == 0: return pmt * 12 * n
-    rm = r / 12
-    return pmt * (((1 + rm) ** (12 * n) - 1) / rm)
-def pmt_required(fv, r, n):
-    if n <= 0: return float('inf')
-    rm = r / 12
-    denom = (1 + rm) ** (12 * n) - 1
-    return fv * rm / denom if denom > 0 else float('inf')
-def real_r(r): return (1 + r) / (1 + INFLATION) - 1
-
-
-def calculate(data: dict):
-    age      = int(data["current_age"])
-    retire   = int(data["retire_age"])
-    life_exp = int(data["life_expectancy"])
-    fixed_ex = float(data["fixed_expense"])
-    var_ex   = float(data["variable_expense"])
-    income   = float(data["monthly_income"])
-    risk     = int(data["risk_level"])
-    invest   = float(data["current_investment"])
-    dca      = float(data["monthly_dca"])
-
-    n_accum  = retire - age
-    n_retire = life_exp - retire
-    r        = RISK_CONFIG[risk]["return"]
-    rcfg     = RISK_CONFIG[risk]
-
-    total_exp  = fixed_ex + var_ex
-    net_flow   = income - total_exp
-    save_pct   = (net_flow / income * 100) if income > 0 else 0
-    exp_retire_m = fv_lump(total_exp, INFLATION, n_accum)
-    exp_retire_y = exp_retire_m * 12
-    fund_4pct = exp_retire_y / 0.04
-    rr = real_r(r)
-    fund_pv   = exp_retire_y * (1 - (1 + rr) ** (-n_retire)) / rr if rr > 0 else exp_retire_y * n_retire
-    target    = max(fund_4pct, fund_pv)
-    fv_exist  = fv_lump(invest, r, n_accum)
-    fv_dca_v  = fv_dca_monthly(dca, r, n_accum)
-    projected = fv_exist + fv_dca_v
-    gap       = target - projected
-    gap_flag  = gap > 0
-    extra_pmt = pmt_required(max(gap, 0), r, n_accum) if gap_flag else 0
-    total_pmt = dca + extra_pmt
-    withdrawal_m = projected * 0.04 / 12
-    withdrawal_y = projected * 0.04
-
-    cps = sorted(set([age] + list(range(age + 5, retire, 5)) + [retire]))
-    rows_data = []
-    for a in cps:
-        yrs = a - age
-        if yrs == 0: rows_data.append((a, invest, 0.0, invest))
-        else: rows_data.append((a, fv_lump(invest,r,yrs), fv_dca_monthly(dca,r,yrs),
-                                 fv_lump(invest,r,yrs)+fv_dca_monthly(dca,r,yrs)))
-
-    scen_a = projected + fv_dca_monthly(2000, r, n_accum)
-    r2     = r + 0.02
-    scen_b = fv_lump(invest, r2, n_accum) + fv_dca_monthly(dca, r2, n_accum)
-    years_early = 0
-    for nt in range(max(n_accum - 20, 1), n_accum):
-        if (fv_lump(invest, r, nt) + fv_dca_monthly(dca + 2000, r, nt)) >= target:
-            years_early = n_accum - nt
-            break
-
-    income_y = income * 12
-    max_ssf  = min(income_y * 0.30, 200_000)
-    max_rmf  = min(income_y * 0.30, 500_000)
-    tax_save = (max_ssf + max_rmf) * 0.15
-    surplus  = projected - target
-
-    return [
-        build_profile_flex(age, retire, life_exp, n_accum, n_retire,
-                           income, fixed_ex, var_ex, total_exp, net_flow, save_pct,
-                           invest, dca, exp_retire_m, exp_retire_y, withdrawal_m, withdrawal_y, rcfg, r),
-        build_goal_flex(target, fund_4pct, fund_pv, n_retire, r, projected, fv_exist, fv_dca_v, rows_data),
-        build_bigpicture_flex(target, projected, surplus, gap_flag, extra_pmt, total_pmt, dca, rcfg, years_early),
-        build_products_flex(rcfg, scen_a, scen_b, target, years_early, max_ssf, max_rmf, tax_save, r),
-    ]
-
-
-# ═══════════════════════════════════════════════════════════════════════════════
-#  Validation
+#  Business Logic Helpers
 # ═══════════════════════════════════════════════════════════════════════════════
 
 def validate(step, val, data):
-    key = QUESTIONS[step]["key"]
-    if key == "current_age":
-        if not (10 <= val <= 80): return "⚠️ กรุณาระบุอายุระหว่าง 10–80 ปีค่ะ"
-    elif key == "retire_age":
-        cur = data.get("current_age", 0)
-        if val <= cur: return f"⚠️ อายุเกษียณต้องมากกว่าอายุปัจจุบัน ({int(cur)} ปี)\nกรุณาระบุใหม่ค่ะ"
-        if val > 85: return "⚠️ กรุณาระบุอายุเกษียณไม่เกิน 85 ปีค่ะ"
-    elif key == "life_expectancy":
-        ret = data.get("retire_age", 0)
-        if val <= ret: return (f"⚠️ อายุขัยต้องมากกว่าอายุเกษียณ ({int(ret)} ปี)\n"
-                               f"💡 เช่น ถ้าเกษียณ {int(ret)} ควรวางแผนถึง {int(ret)+25} ปี")
-        if val > 110: return "⚠️ กรุณาระบุอายุขัยไม่เกิน 110 ปีค่ะ"
-    elif key == "risk_level":
-        if int(val) not in (1, 2, 3): return "⚠️ กรุณาพิมพ์เพียง 1, 2 หรือ 3 ค่ะ"
+    if step == 0 and val < 18: return "อายุควรมากกว่า 18 ปีค่ะ"
+    if step == 1 and val <= data.get("current_age", 0): return "อายุเกษียณต้องมากกว่าอายุปัจจุบันค่ะ"
+    if step == 2 and val <= data.get("retire_age", 0): return "อายุขัยต้องมากกว่าอายุเกษียณค่ะ"
+    if step == 6 and val not in [1, 2, 3]: return "กรุณาพิมพ์ระดับความเสี่ยง 1, 2 หรือ 3 ค่ะ"
     return None
+
+def calculate(data):
+    age = data["current_age"]
+    retire = data["retire_age"]
+    life_exp = data["life_expectancy"]
+    fixed_ex = data["fixed_expense"]
+    var_ex = data["variable_expense"]
+    income = data["monthly_income"]
+    risk = data["risk_level"]
+    invest = data["current_investment"]
+    dca = data["monthly_dca"]
+
+    n_accum = retire - age
+    n_retire = life_exp - retire
+    total_exp = fixed_ex + var_ex
+    net_flow = income - total_exp
+    save_pct = (net_flow / income * 100) if income > 0 else 0
+
+    rcfg = RISK_CONFIG[risk]
+    r = rcfg["return"]
+
+    # Inflation adjusted expenses at retirement
+    inflation_factor = (1 + INFLATION) ** n_accum
+    exp_retire_m = total_exp * inflation_factor
+    exp_retire_y = exp_retire_m * 12
+    
+    # Target funds
+    fund_4pct = exp_retire_y / 0.04
+    # Simple PV calculation (approximated for real return)
+    real_return = (1 + r) / (1 + INFLATION) - 1
+    if real_return == 0:
+        fund_pv = exp_retire_y * n_retire
+    else:
+        fund_pv = exp_retire_y * ((1 - (1 + real_return)**-n_retire) / real_return)
+        
+    target = max(fund_4pct, fund_pv)
+
+    # Future Value projections
+    fv_exist = invest * ((1 + r) ** n_accum)
+    fv_dca_v = dca * 12 * (((1 + r) ** n_accum - 1) / r) if r > 0 else dca * 12 * n_accum
+    projected = fv_exist + fv_dca_v
+    
+    withdrawal_y = projected * 0.04
+    withdrawal_m = withdrawal_y / 12
+
+    # Simulate growth milestones
+    rows_data = []
+    checkpoints = [age + n_accum // 3, age + 2 * (n_accum // 3), retire]
+    for cp in checkpoints:
+        yrs = cp - age
+        v_ex = invest * ((1 + r) ** yrs)
+        v_dc = dca * 12 * (((1 + r) ** yrs - 1) / r) if r > 0 else dca * 12 * yrs
+        rows_data.append((cp, v_ex, v_dc, v_ex + v_dc))
+
+    flex1 = build_profile_flex(age, retire, life_exp, n_accum, n_retire, income, fixed_ex, var_ex, total_exp, net_flow, save_pct, invest, dca, exp_retire_m, exp_retire_y, withdrawal_m, withdrawal_y, rcfg, r)
+    flex2 = build_goal_flex(target, fund_4pct, fund_pv, n_retire, r, projected, fv_exist, fv_dca_v, rows_data)
+    flex3 = build_bigpicture_flex(projected, target)
+    flex4 = build_scenario_flex(rcfg)
+    
+    return [flex1, flex2, flex3, flex4]
 
 
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -621,7 +449,6 @@ def push_flex_list(api, uid, flex_list, alts):
     msgs = [make_flex(alts[i], flex_list[i]) for i in range(len(flex_list))]
     for i in range(0, len(msgs), 5):
         api.push_message(PushMessageRequest(to=uid, messages=msgs[i:i+5]))
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 #  LINE Event Handler
@@ -693,7 +520,6 @@ def handle_text_message(event):
             logger.exception(f"Error: {e}")
             reply_text(api, event.reply_token,
                        "⚠️ เกิดข้อผิดพลาดบางอย่างค่ะ\nกรุณาพิมพ์ 'เริ่มใหม่' เพื่อลองใหม่อีกครั้ง")
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 #  FastAPI
