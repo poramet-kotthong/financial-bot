@@ -124,7 +124,7 @@ def build_welcome_flex():
         "type": "bubble", "size": "mega",
         "header": {"type": "box", "layout": "vertical", "backgroundColor": C_GREEN, "paddingAll": "20px",
                    "contents": [
-                       {"type": "text", "text": "🏦 KrungsriRetire", "color": C_WHITE, "size": "xl", "weight": "bold", "align": "center"},
+                       {"type": "text", "text": "🏦 Financial Retirement Planning", "color": C_WHITE, "size": "xl", "weight": "bold", "align": "center"},
                        {"type": "text", "text": "ผู้ช่วยวางแผนเกษียณอัจฉริยะ", "color": C_GOLD, "size": "sm", "align": "center", "margin": "xs"},
                    ]},
         "body": {"type": "box", "layout": "vertical", "paddingAll": "20px",
@@ -478,7 +478,7 @@ def handle_text_message(event):
                 return
 
             if uid not in sessions:
-                reply_flex(api, event.reply_token, "ยินดีต้อนรับสู่ KrungsriRetire", build_welcome_flex())
+                reply_flex(api, event.reply_token, "ยินดีต้อนรับสู่ Financial Retirement Planning", build_welcome_flex())
                 return
 
             sess = sessions[uid]
