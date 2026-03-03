@@ -49,7 +49,7 @@ RISK_CONFIG = {
         "desc": "รักษาเงินต้น ยอมรับผลตอบแทนที่ต่ำกว่า เพื่อความมั่นคงสูง"},
     2: {"name": "ปานกลาง (Moderate)", "return": 0.06, "color": "#FF9800",
         "alloc": {"เงินฝากประจำ": 20, "กองทุนตราสารหนี้": 30, "กองทุนผสม/หุ้น": 50},
-        "products": ["fixed_1y", "kf_fixed", "kf_bal", "kf_star", "kf_ssf", "kf_rmfa"],
+        "products": ["fixed_1y", "kf_fixed", "kf_bal", "kf_star", "kf_ssf", "kf_rmf"],
         "desc": "สมดุลระหว่างการเติบโตและความมั่นคง เหมาะกับนักลงทุนทั่วไป"},
     3: {"name": "สูง (Aggressive)", "return": 0.08, "color": "#F44336",
         "alloc": {"เงินฝากประจำ": 5, "กองทุนตราสารหนี้": 15, "กองทุนผสม": 20, "กองทุนหุ้น": 60},
@@ -108,9 +108,11 @@ def prog_bar(ratio, w=10, color=C_GREEN):
     filled = max(0, min(w, int(ratio * w)))
     cells = []
     for i in range(w):
+        # ⚠️ แก้ไขตรงนี้: เพิ่ม "contents": [] ให้กับกล่องว่าง
         cells.append({"type": "box", "layout": "vertical", "flex": 1, "height": "6px",
                        "cornerRadius": "3px",
-                       "backgroundColor": color if i < filled else "#E0E0E0"})
+                       "backgroundColor": color if i < filled else "#E0E0E0",
+                       "contents": []})
     return {"type": "box", "layout": "horizontal", "spacing": "xs", "contents": cells}
 
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -242,9 +244,11 @@ def build_goal_flex(target, fund_4pct, fund_pv, n_retire, r, projected, fv_exist
         bar_w = max(1, int(ratio * 8))
         bar_cells = []
         for i in range(8):
+            # ⚠️ แก้ไขตรงนี้: เพิ่ม "contents": [] ให้กับกล่องว่าง
             bar_cells.append({"type": "box", "layout": "vertical", "flex": 1,
                                "backgroundColor": C_GREEN if i < bar_w else "#E0E0E0",
-                               "height": "8px", "cornerRadius": "2px"})
+                               "height": "8px", "cornerRadius": "2px",
+                               "contents": []})
         row_items.append({
             "type": "box", "layout": "vertical", "margin": "sm",
             "contents": [
@@ -424,7 +428,6 @@ def calculate(data):
     flex4 = build_scenario_flex(rcfg)
     
     return [flex1, flex2, flex3, flex4]
-
 
 # ═══════════════════════════════════════════════════════════════════════════════
 #  LINE Helpers
