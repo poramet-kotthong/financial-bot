@@ -674,15 +674,15 @@ def build_bigpicture_flex(projected, target, dca, n_accum, r):
                  if success else
                  "เป้าหมายยังขาดอยู่ ลองปรับแผน")
 
-  extra = []
-if not success:
-    fv_unit = (12 * (((1 + r) ** n_accum - 1) / r)
-               if r > 0 else 12 * n_accum)
-    need_dca = abs(gap) / fv_unit if fv_unit > 0 else 0
-    extra = [
-        row_item("DCA ที่ต้องเพิ่ม/เดือน",
-                 f"฿{fmt(need_dca)}", C_NEG, True),
-    ]
+    extra = []
+    if not success:
+        fv_unit = (12 * (((1 + r) ** n_accum - 1) / r)
+                   if r > 0 else 12 * n_accum)
+        need_dca = abs(gap) / fv_unit if fv_unit > 0 else 0
+        extra = [
+            row_item("DCA ที่ต้องเพิ่ม/เดือน",
+                     f"฿{fmt(need_dca)}", C_NEG, True),
+        ]
 
     tips_yes = [
         "✅ รักษาวินัย DCA ต่อเนื่องทุกเดือน",
